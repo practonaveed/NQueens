@@ -1,4 +1,5 @@
-import time
+#import time
+import sys
 
 def generateNQueens(n):
 	return [[' ' for i in range(n)]  for j in range(n)]
@@ -60,15 +61,21 @@ def NQueen_recur(lst,column):
                 	lst[i][column] = ' '
     return None
 
-def All_NQueens(Queen_Graph):
+def NQueen(lst):	
+	NQueen_recur(lst,0)
+	return
+
+def All_NQueens(Queen_Graph,fp):
 	for i in range(1,len(Queen_Graph)+1):
-		print i
-		print Queen_Graph[i]
-		print '-'*100
+		st = '-'*100 + str(i) + '\n'
+		st +=  Queen_Graph[i]
+		fp.write(st)
+	fp.close()
+	return
 
 lst = generateNQueens(int(raw_input("Type the value of N for NQueens : ")))
-temp_lst = lst[:][:]
 counter  = 0
 Queen_Graph = {}
-NQueen_recur(lst,0)
-All_NQueens(Queen_Graph)
+NQueen(lst)
+file_output = open(sys.argv[1],"w")
+All_NQueens(Queen_Graph,file_output)
