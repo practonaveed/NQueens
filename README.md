@@ -11,15 +11,20 @@ Class Assignments for NQueens Problem
 
 ###Command
 ...
+
 python nQueens.py outputFile.txt
+
 ...
 
 ###Suggestion
 To see the code in action remove the Hash symbol '#' from the code
+
 '''
+
 import time
 print printNQueens(lst)
 time.sleep(1)
+
 ...
 
 ##Development
